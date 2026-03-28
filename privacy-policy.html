@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — NBAi</title>
+  <style>
+    :root {
+      --accent: #e65100;
+      --bg: #fafafa;
+      --text: #333;
+      --muted: #666;
+      --card-bg: #fff;
+      --border: #e0e0e0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    h1 { color: var(--accent); font-size: 1.8rem; margin-bottom: 0.25rem; }
+    .updated { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+    h2 { color: var(--accent); font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.5rem; }
+    h3 { font-size: 1rem; margin-top: 1rem; margin-bottom: 0.3rem; }
+    p, li { margin-bottom: 0.5rem; }
+    ul { padding-left: 1.4rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem 0.75rem; border: 1px solid var(--border); }
+    th { background: #f5f5f5; font-weight: 600; }
+    .back { display: inline-block; margin-bottom: 1.5rem; color: var(--accent); font-size: 0.9rem; }
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back">&larr; Back to NBAi</a>
+
+    <h1>NBAi Privacy Policy</h1>
+    <p class="updated">Last updated: March 24, 2026</p>
+
+    <h2>Overview</h2>
+    <p>NBAi is a browser extension that provides analytics and insights for Yahoo Fantasy Basketball. This privacy policy explains what data we collect, how we use it, and your rights.</p>
+
+    <h2>Data We Collect</h2>
+
+    <h3>Account Data</h3>
+    <ul>
+      <li><strong>Email address</strong> — used for account authentication (via Google Sign-In or email/password)</li>
+      <li><strong>Yahoo account email</strong> — scraped from the Yahoo Fantasy page to link your NBAi account to your Yahoo account (prevents account sharing abuse)</li>
+    </ul>
+
+    <h3>Fantasy Basketball Data</h3>
+    <ul>
+      <li><strong>League data</strong> — roster, matchup, standings, and league settings from your Yahoo Fantasy Basketball leagues</li>
+      <li><strong>Player statistics</strong> — game logs, season averages, and projection data from NBA.com and Yahoo APIs</li>
+    </ul>
+
+    <h3>Payment Data</h3>
+    <ul>
+      <li><strong>Subscription status</strong> — whether you have a free or premium account, and when it expires</li>
+      <li>Payments are processed by <strong>Lemon Squeezy</strong> (our Merchant of Record). We do not store credit card numbers, billing addresses, or other payment details. See <a href="https://www.lemonsqueezy.com/privacy">Lemon Squeezy's Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>How We Use Your Data</h2>
+    <ul>
+      <li><strong>Account authentication</strong> — to verify your identity and manage your subscription</li>
+      <li><strong>Fantasy analytics</strong> — to provide matchup projections, trade analysis, and other insights</li>
+      <li><strong>Yahoo email matching</strong> — to ensure your NBAi account is tied to your Yahoo Fantasy account (anti-abuse measure)</li>
+      <li><strong>License validation</strong> — to determine whether you have access to free or premium features</li>
+    </ul>
+
+    <h2>Where Data Is Stored</h2>
+    <ul>
+      <li><strong>Locally on your device</strong> — fantasy data is cached in your browser's local storage (IndexedDB and browser.storage.local). This data never leaves your device except as described below.</li>
+      <li><strong>Firebase (Google Cloud)</strong> — account data (email, Yahoo email, license status) is stored in Google Cloud Firestore. Firestore security rules ensure you can only access your own data.</li>
+      <li><strong>Lemon Squeezy</strong> — payment and subscription data is managed by Lemon Squeezy.</li>
+    </ul>
+
+    <h2>Data We Do NOT Collect</h2>
+    <ul>
+      <li>We do not track your browsing history</li>
+      <li>We do not collect analytics or telemetry</li>
+      <li>We do not serve ads</li>
+      <li>We do not sell or share your data with third parties</li>
+      <li>We do not store your Yahoo OAuth credentials on our servers (tokens are stored locally in your browser)</li>
+    </ul>
+
+    <h2>Third-Party Services</h2>
+    <table>
+      <thead>
+        <tr><th>Service</th><th>Purpose</th><th>Their Privacy Policy</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Firebase Authentication</td><td>Account sign-in</td><td><a href="https://policies.google.com/privacy">Google Privacy Policy</a></td></tr>
+        <tr><td>Cloud Firestore</td><td>Account and license data</td><td><a href="https://policies.google.com/privacy">Google Privacy Policy</a></td></tr>
+        <tr><td>Lemon Squeezy</td><td>Payment processing</td><td><a href="https://www.lemonsqueezy.com/privacy">Lemon Squeezy Privacy</a></td></tr>
+        <tr><td>Yahoo Fantasy API</td><td>Fantasy basketball data</td><td><a href="https://legal.yahoo.com/us/en/yahoo/privacy/index.html">Yahoo Privacy Policy</a></td></tr>
+        <tr><td>NBA.com</td><td>Player statistics and schedules</td><td><a href="https://www.nba.com/privacy-policy">NBA Privacy Policy</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Your Rights</h2>
+    <ul>
+      <li><strong>Access</strong> — you can view your account data in the extension popup</li>
+      <li><strong>Deletion</strong> — you can delete your account by signing out and requesting account deletion. Contact us at the email below.</li>
+      <li><strong>Data portability</strong> — your fantasy data is cached locally and can be exported via the debug bundle</li>
+      <li><strong>Opt out</strong> — uninstall the extension to stop all data collection immediately</li>
+    </ul>
+
+    <h2>Data Retention</h2>
+    <ul>
+      <li><strong>Local cache</strong> — automatically expires based on TTL (3 hours to 30 days depending on data type)</li>
+      <li><strong>Account data</strong> — retained until you delete your account</li>
+      <li><strong>Payment records</strong> — retained by Lemon Squeezy per their retention policy</li>
+    </ul>
+
+    <h2>Security</h2>
+    <ul>
+      <li>All communication uses HTTPS</li>
+      <li>Firebase security rules enforce per-user data isolation</li>
+      <li>Yahoo OAuth tokens are stored locally in your browser (not on our servers)</li>
+      <li>Webhook signatures are verified using HMAC-SHA256</li>
+    </ul>
+
+    <h2>Children's Privacy</h2>
+    <p>NBAi is not directed at children under 13. We do not knowingly collect data from children.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Changes will be posted at this URL.</p>
+
+    <h2>Contact</h2>
+    <p>For questions about this privacy policy or to request account deletion, contact: <a href="mailto:amitsmall89@gmail.com">amitsmall89@gmail.com</a></p>
+
+    <footer>
+      &copy; 2026 NBAi
+    </footer>
+  </div>
+</body>
+</html>
