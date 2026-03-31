@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — NBAi</title>
+  <style>
+    :root {
+      --accent: #e65100;
+      --bg: #fafafa;
+      --text: #333;
+      --muted: #666;
+      --border: #e0e0e0;
+      --card-bg: #fff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .back { display: inline-block; margin-bottom: 1.5rem; color: var(--accent); font-size: 0.9rem; text-decoration: none; }
+    .back:hover { text-decoration: underline; }
+    header { text-align: center; margin-bottom: 2.5rem; }
+    header h1 { color: var(--accent); font-size: 2rem; margin-bottom: 0.4rem; }
+    header p { color: var(--muted); font-size: 1.05rem; }
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 600px) { .plans { grid-template-columns: 1fr; } }
+    .plan {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+    }
+    .plan.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .plan-name { font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.25rem; }
+    .plan-price { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.1rem; }
+    .plan-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .plan-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .plan ul { list-style: none; padding: 0; }
+    .plan li { padding: 0.3rem 0; font-size: 0.95rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+    .plan li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+    .plan li.locked::before { content: '—'; color: #bbb; }
+    .plan li.locked { color: #aaa; }
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 1rem 0 0.4rem;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      margin-left: 0.3rem;
+      vertical-align: middle;
+    }
+    .faq { margin-top: 2rem; }
+    .faq h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 1rem; }
+    .faq-item { margin-bottom: 1rem; }
+    .faq-item strong { display: block; margin-bottom: 0.2rem; }
+    .faq-item p { color: var(--muted); font-size: 0.95rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back">&larr; Back to NBAi</a>
+
+    <header>
+      <h1>Simple, honest pricing</h1>
+      <p>Start free. Upgrade when you're ready to go deeper.</p>
+    </header>
+
+    <div class="plans">
+
+      <!-- Free -->
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0 <span>/ forever</span></div>
+        <div class="plan-note">No credit card required</div>
+
+        <div class="section-title">Roster &amp; Matchup</div>
+        <ul>
+          <li>Matchup projections table</li>
+          <li>Games remaining per player</li>
+          <li>Schedule view &amp; game counts</li>
+          <li>Category gap analysis</li>
+          <li>Roster page enhancements</li>
+        </ul>
+
+        <div class="section-title">Tools</div>
+        <ul>
+          <li>Trade analyzer</li>
+          <li>League totals view</li>
+          <li>1 scheduled transaction / week</li>
+          <li class="locked">Pickup simulator</li>
+          <li class="locked">Pickup suggestions</li>
+          <li class="locked">Punt detection</li>
+          <li class="locked">League projections &amp; strength</li>
+          <li class="locked">Unlimited scheduled transactions</li>
+        </ul>
+      </div>
+
+      <!-- Premium -->
+      <div class="plan featured">
+        <div class="plan-name">Premium <span class="badge">BEST VALUE</span></div>
+        <div class="plan-price">$5 <span>/ month</span></div>
+        <div class="plan-note">or $17 / year &mdash; save 72%</div>
+
+        <div class="section-title">Everything in Free, plus:</div>
+        <ul>
+          <li>Pickup simulator</li>
+          <li>Pickup suggestions &amp; scoring</li>
+          <li>Punt detection &amp; pattern analysis</li>
+          <li>League projections view</li>
+          <li>Team strength view</li>
+          <li>Unlimited scheduled transactions</li>
+          <li>Injury opportunity detection</li>
+        </ul>
+
+        <div class="section-title">Support</div>
+        <ul>
+          <li>Priority bug reports</li>
+          <li>Early access to new features</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="faq">
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <strong>How do I subscribe?</strong>
+        <p>Install the extension, open the popup, and click "Subscribe". Payments are processed securely by Paddle.</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Can I cancel anytime?</strong>
+        <p>Yes. Cancel from the <a href="https://customer.paddle.com/" target="_blank">Paddle customer portal</a>. You keep Premium access until the end of the billing period.</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Do you offer refunds?</strong>
+        <p>Yes — within 7 days of purchase if the extension didn't work as described. Contact <a href="mailto:amitsmall89@gmail.com">amitsmall89@gmail.com</a>.</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Does it work with any Yahoo Fantasy Basketball league?</strong>
+        <p>Yes — public and private leagues, any format.</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Can I share my account?</strong>
+        <p>No. One subscription covers one Yahoo account. The extension links your NBAi account to your Yahoo account to prevent sharing.</p>
+      </div>
+    </div>
+
+    <footer>&copy; 2026 NBAi &mdash; <a href="terms.html">Terms</a> &middot; <a href="privacy-policy.html">Privacy</a></footer>
+  </div>
+</body>
+</html>
