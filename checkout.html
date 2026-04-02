@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBAi Checkout</title>
+  <style>
+    :root {
+      --accent: #e65100;
+      --bg: #fafafa;
+      --text: #333;
+      --muted: #666;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .status {
+      text-align: center;
+      padding: 2rem;
+    }
+    .status h2 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .status p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid #e0e0e0;
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error { color: #c62828; }
+  </style>
+</head>
+<body>
+  <div class="status" id="status">
+    <div class="spinner" id="spinner"></div>
+    <p>Opening checkout&hellip;</p>
+  </div>
+
+  <!-- Paddle.js v2 — client-side checkout overlay -->
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // Paddle client-side token (publishable — safe to include here)
+      var PADDLE_CLIENT_TOKEN = 'live_ea4c008b55e9fd89ebca4e015e8';
+
+      var statusEl = document.getElementById('status');
+      var spinnerEl = document.getElementById('spinner');
+
+      /**
+       * Show an error message and hide the spinner.
+       * @param {string} message
+       */
+      function showError(message) {
+        spinnerEl.style.display = 'none';
+        statusEl.innerHTML =
+          '<h2 class="error">Checkout error</h2><p>' + message + '</p>' +
+          '<p style="margin-top:1rem"><a href="mailto:amitsmall89@gmail.com" style="color:#e65100">Contact support</a></p>';
+      }
+
+      /**
+       * Show a success message after payment completes.
+       */
+      function showSuccess() {
+        spinnerEl.style.display = 'none';
+        statusEl.innerHTML =
+          '<h2>Payment successful!</h2>' +
+          '<p>Your NBAi Premium subscription is now active.<br>' +
+          'You can close this tab and reload the extension popup.</p>';
+      }
+
+      // Read URL parameters set by the extension popup
+      var params = new URLSearchParams(window.location.search);
+      var priceId = params.get('priceId');
+      var uid     = params.get('uid');
+      var email   = params.get('email');
+
+      // Validate required params before initialising Paddle
+      if (!priceId || !uid) {
+        showError('Invalid checkout link. Please try again from the NBAi extension popup.');
+        return;
+      }
+
+      // Build the checkout options object
+      var checkoutOptions = {
+        items: [{ priceId: priceId, quantity: 1 }],
+        customData: { firebase_uid: uid },
+        settings: {
+          displayMode: 'overlay',
+          theme: 'light',
+          locale: 'en',
+        },
+      };
+
+      // Pre-fill customer email if provided
+      if (email) {
+        checkoutOptions.customer = { email: email };
+      }
+
+      // Initialise Paddle and open checkout once ready
+      Paddle.Initialize({
+        token: PADDLE_CLIENT_TOKEN,
+        eventCallback: function (event) {
+          if (event.name === 'checkout.completed') {
+            showSuccess();
+          }
+        },
+      });
+
+      // Small delay to allow Paddle.js to fully initialise before opening overlay
+      setTimeout(function () {
+        try {
+          Paddle.Checkout.open(checkoutOptions);
+        } catch (err) {
+          showError('Could not open checkout. Please try again or contact support.');
+          console.error('Paddle.Checkout.open error:', err);
+        }
+      }, 300);
+    }());
+  </script>
+</body>
+</html>
